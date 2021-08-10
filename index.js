@@ -69,7 +69,19 @@ var upload = multer({ storage: storage })
 app.use(express.static(__dirname + '/Userimage'))
 var reportupload= multer({ storage: reportstorage })
 app.use(express.static(__dirname + '/Report'))
+app.use(express.static('public'))
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
+
 //routes ARE THERE
+
+app.get('/', (req, res) => {
+ res.send("hey")
+})
+
+
+
+
 // 1:Login OF ALL THE USER
 app.post('/login',bodyParser.json(),(req,res)=>{
   // console.log(req.body)
